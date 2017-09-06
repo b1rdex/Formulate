@@ -107,14 +107,6 @@ class Formula
     }
 
     /**
-     * @return array
-     */
-    public function getReplacements()
-    {
-        return $this->getRenderer()->getReplacements($this);
-    }
-
-    /**
      * @param TokenCollectorInterface $tokenCollector tokenCollector
      */
     public function setTokenCollector(TokenCollectorInterface $tokenCollector)
@@ -191,4 +183,20 @@ class Formula
         return $this->isCalculable;
     }
 
+    static public function build($formula, $isCalculable = self::CALCULABLE)
+    {
+        return new Formula($formula, $isCalculable);
+    }
+
+    public function setVars(array $vars)
+    {
+        $this->parameterBag->datas = array_merge($this->parameterBag->datas, $vars);
+
+        return $this;
+    }
+
+    public function evaluate()
+    {
+        return $this->render();
+    }
 }

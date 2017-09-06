@@ -75,30 +75,6 @@ abstract class AbstractFormulaRenderer implements FormulaRendererInterface
     }
 
     /**
-     * @param Formula $formula
-     *
-     * @return array
-     */
-    public function getReplacements(Formula $formula)
-    {
-        $result = array();
-
-        $start = $this->getOption('separator_start');
-        $end   = $this->getOption('separator_end');
-
-        if (preg_match_all('/'. $start . '(.+?)' . $end . '/is', $this->prepare($formula->formula), $matches)) {
-            $result = array_merge($result, $matches[1]);
-        }
-
-        foreach ($formula->getSubFormulas() as $key => $subformula) {
-            $result = array_merge($result, $this->getReplacements($subformula));
-            unset($result[array_search($key, $result)]);
-        }
-
-        return array_unique($result);
-    }
-
-    /**
      * @param string $key     key
      * @param mixed  $default default
      *

@@ -1,11 +1,11 @@
 Formulate - PHP
 ===============
 
-[![Build Status](https://travis-ci.org/rezzza/Formulate.svg)](https://travis-ci.org/rezzza/Formulate)
+[![Build Status](https://secure.travis-ci.org/rezzza/Formulate.png)](http://travis-ci.org/rezzza/Formulate)
 
 Making life easier while writing complex math formulas, take a breath
 
-## Install via composer
+## Instalation - composer
 
 ```
 # composer.json
@@ -34,7 +34,7 @@ echo $formula->render(); // "23"
 // Works with sub formulas
 
 $formula = new Formula('{{ subformula1 }} + {{ variable2 }}');
-$formula->setSubFormula('subformula1', new Formula('({{ variable1 }} - {{ variable2 }} / 100)'));
+$formula->setSubFormula('subformula1', new Formula('subformula1', '({{ variable1 }} - {{ variable2 }} / 100)'));
 $formula->setParameter('variable1', 10);
 $formula->setParameter('variable2', 13);
 

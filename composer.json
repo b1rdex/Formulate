@@ -11,10 +11,10 @@
     }],
     "require": {
         "php": ">=5.3.2",
-        "hoa/math" : "<2.0"
+        "hoa/math" : "dev-master"
     },
     "require-dev": {
-        "atoum/atoum": "~2.0"
+        "atoum/atoum": "dev-master"
     },
     "autoload":     {
         "psr-0": {
